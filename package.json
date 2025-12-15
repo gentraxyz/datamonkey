@@ -1,0 +1,29 @@
+{
+  "name": "datamonkey-mcp-sensory",
+  "version": "0.0.0",
+  "type": "module",
+  "description": "MCP server providing sensory tools for Datamonkey (image inspection and system status).",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test-client": "node test-client.js",
+    "build": "esbuild workers/entry.js --bundle --outfile=dist/worker.js --platform=browser --target=es2020",
+    "deploy:wrangler": "wrangler publish --build \"npm run build\""
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "*",
+    "zod": "*"
+  },
+  "optionalDependencies": {
+    "sharp": "*",
+    "systeminformation": "*"
+  },
+  "localDevNotes": "sharp and systeminformation require native Node APIs and are incompatible with Cloudflare Workers (and other edge runtimes). They were removed from runtime 'dependencies' and placed in 'optionalDependencies' so local Node-only tests can still install them when needed. For Node-only deployments or local testing, reinstall them in a Node-only package.json or run `npm install --no-optional` as desired. Do NOT include these packages in Worker runtime builds.",
+  "devDependencies": {
+    "esbuild": "*"
+  },
+  "license": "MIT"
+}
