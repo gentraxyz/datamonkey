@@ -23,7 +23,7 @@
   },
   "localDevNotes": "sharp and systeminformation require native Node APIs and are incompatible with Cloudflare Workers (and other edge runtimes). They were removed from runtime 'dependencies' and placed in 'optionalDependencies' so local Node-only tests can still install them when needed. For Node-only deployments or local testing, reinstall them in a Node-only package.json or run `npm install --no-optional` as desired. Do NOT include these packages in Worker runtime builds.",
   "devDependencies": {
-    "esbuild": "*"
+    "esbuild": "0.27.1"
   },
   "license": "MIT"
 }
