@@ -82,7 +82,7 @@ function inspectFromBase64(base64) {
   };
 }
 
-export default {
+const handler = {
   async fetch(request, env) {
     const start = (globalThis.performance && performance.now && performance.now()) || Date.now();
     try {
@@ -147,3 +147,10 @@ export default {
     }
   },
 };
+
+export default handler;
+
+// Ensure a global fetch handler is registered for bundlers that produce IIFE output
+if (typeof globalThis !== "undefined" && !globalThis.fetch) {
+  globalThis.fetch = (request, env) => handler.fetch(request, env);
+}
