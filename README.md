@@ -163,5 +163,3 @@ Open questions / uncertainties
 - `wrangler.toml` currently lacks account-specific fields (account_id, routes, environment configs). Confirm intended Cloudflare account and routing before CI publish ([`wrangler.toml`](wrangler.toml:1-3)).  
 - Is [`index.js`](index.js:1) still required for Node-only fallback local testing, or can it be removed/archived? (`index.js` is listed as the package main in [`package.json`](package.json:6)).  
 - If automated tests should run without a deployed Worker, add unit tests for [`workers/image-parser.js`](workers/image-parser.js:1) to validate parsing in CI.
-
-End of instructions.
