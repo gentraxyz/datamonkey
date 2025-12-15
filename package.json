@@ -11,7 +11,7 @@
     "ci:install": "npm ci --omit=dev --no-audit --no-fund",
     "ci:build": "npm run ci:install && npm run build",
     "deploy:ci": "npx --yes wrangler@3.6.0 deploy --outdir dist --no-bundle",
-    "deploy:wrangler": "wrangler publish --build \"npm run build\""
+    "deploy:wrangler": "npx --yes wrangler@3.6.0 deploy --outdir dist --no-bundle"
   },
   "engines": {
     "node": ">=18"
